@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width,
+        initial-scale=1.0">
+    <title>ShopEase – Cart</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar">
+    <a href="index.html" class="logo">
+        🛒 Shop<span>Ease</span>
+    </a>
+    <div class="nav-links">
+        <a href="index.html">🏠 Home</a>
+        <a href="orders.html">📋 Orders</a>
+        <button class="btn-logout"
+            onclick="logout()">
+            Logout
+        </button>
+    </div>
+</nav>
+
+<!-- Cart Content -->
+<div class="cart-container">
+    <h2 style="margin-bottom:25px;
+        color:#1a1a2e; font-size:26px">
+        🛒 My Cart
+    </h2>
+
+    <div id="cartContent">
+        <div class="loading">
+            Loading cart...
+        </div>
+    </div>
+</div>
+
+<!-- Toast -->
+<div class="toast" id="toast"></div>
+
+<script src="js/api.js"></script>
+<script src="js/cart.js"></script>
+</body>
+</html>

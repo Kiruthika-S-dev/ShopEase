@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width,
+        initial-scale=1.0">
+    <title>ShopEase – Orders</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar">
+    <a href="index.html" class="logo">
+        🛒 Shop<span>Ease</span>
+    </a>
+    <div class="nav-links">
+        <a href="index.html">🏠 Home</a>
+        <a href="cart.html">🛒 Cart</a>
+        <button class="btn-logout"
+            onclick="logout()">
+            Logout
+        </button>
+    </div>
+</nav>
+
+<!-- Orders Content -->
+<div class="orders-container">
+    <h2 style="margin-bottom:25px;
+        color:#1a1a2e; font-size:26px">
+        📋 My Orders
+    </h2>
+    <div id="ordersContent">
+        <div class="loading">
+            Loading orders...
+        </div>
+    </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script src="js/api.js"></script>
+<script src="js/orders.js"></script>
+</body>
+</html>
