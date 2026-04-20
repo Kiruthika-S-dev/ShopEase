@@ -1,4 +1,4 @@
-const API_BASE = 'http://localhost:8080/api';
+const BASE_URL = 'https://shopease-api-2wdy.onrender.com/api';
 
 function getToken() {
     return localStorage.getItem('token');
