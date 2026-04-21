@@ -62,7 +62,8 @@ public class SecurityConfig {
         config.setAllowedOrigins(Arrays.asList(
             "http://localhost:5500",
             "http://127.0.0.1:5500",
-            "https://dynamic-capybara-3ea090.netlify.app"
+            "https://dynamic-capybara-3ea090.netlify.app",
+            "https://remarkable-hotteok-a5a918.netlify.app"
         ));
 
         config.setAllowedMethods(Arrays.asList(
