@@ -1,6 +1,9 @@
 package com.E_commerce.config;
 
 import com.E_commerce.security.JwtFilter;
+
+import java.util.Arrays;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -51,15 +54,28 @@ public class SecurityConfig {
     
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
+
         CorsConfiguration config = new CorsConfiguration();
-        config.addAllowedOriginPattern("*");
-        config.addAllowedMethod("*");
-        config.addAllowedHeader("*");
+
         config.setAllowCredentials(true);
+
+        config.setAllowedOrigins(Arrays.asList(
+            "http://localhost:5500",
+            "http://127.0.0.1:5500",
+            "https://dynamic-capybara-3ea090.netlify.app"
+        ));
+
+        config.setAllowedMethods(Arrays.asList(
+            "GET", "POST", "PUT", "DELETE", "OPTIONS"
+        ));
+
+        config.setAllowedHeaders(Arrays.asList("*"));
 
         UrlBasedCorsConfigurationSource source =
             new UrlBasedCorsConfigurationSource();
+
         source.registerCorsConfiguration("/**", config);
+
         return source;
     }
 }
