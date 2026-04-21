@@ -17,7 +17,7 @@ async function loadCart() {
     }
 
     try {
-        const response = await fetch('http://localhost:8080/api/cart', {
+        const response = await fetch('https://shopease-api-2wdy.onrender.com/api/cart', {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
@@ -174,7 +174,7 @@ async function placeOrder() {
 
     try {
         // Step 1: Create Razorpay order
-        const res = await fetch('http://localhost:8080/api/payment/create-order', {
+        const res = await fetch('https://shopease-api-2wdy.onrender.com', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -203,7 +203,7 @@ async function placeOrder() {
 
             handler: async function (response) {
                 // Step 3: Verify payment
-                const verifyRes = await fetch('http://localhost:8080/api/payment/verify', {
+                const verifyRes = await fetch('https://shopease-api-2wdy.onrender.com', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
@@ -222,7 +222,7 @@ async function placeOrder() {
                 if (verifyData.status === 'success') {
                     // Step 4: Place ShopEase order
                     const orderRes = await fetch(
-                        `http://localhost:8080/api/orders/place?shippingAddress=${encodeURIComponent(address)}`,
+                        `https://shopease-api-2wdy.onrender.com/api/orders/place?shippingAddress=${encodeURIComponent(address)}`,
                         {
                             method: 'POST',
                             headers: { 'Authorization': 'Bearer ' + token }

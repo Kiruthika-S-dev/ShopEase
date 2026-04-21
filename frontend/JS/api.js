@@ -29,7 +29,7 @@ async function apiCall(endpoint, method = 'GET',
             options.body = JSON.stringify(body);
         }
         const response = await fetch(
-            API_BASE + endpoint, options);
+            BASE_URL + endpoint, options);
 
         if (response.status === 401 ||
                 response.status === 403) {
