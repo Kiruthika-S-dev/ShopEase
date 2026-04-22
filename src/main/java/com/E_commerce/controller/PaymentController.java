@@ -81,7 +81,6 @@ public class PaymentController {
                     "message", "Invalid payment signature"
                 ));
             }
-
         } catch (Exception e) {
             return ResponseEntity.badRequest()
                 .body(Map.of("error", "Verification failed: " + e.getMessage()));

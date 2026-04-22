@@ -174,7 +174,7 @@ async function placeOrder() {
 
     try {
         // Step 1: Create Razorpay order
-        const res = await fetch('https://shopease-api-2wdy.onrender.com', {
+        const res = await fetch('https://shopease-api-2wdy.onrender.com/api/payment/create-order', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -203,7 +203,7 @@ async function placeOrder() {
 
             handler: async function (response) {
                 // Step 3: Verify payment
-                const verifyRes = await fetch('https://shopease-api-2wdy.onrender.com', {
+                const verifyRes = await fetch('https://shopease-api-2wdy.onrender.com/api/payment/verify', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
