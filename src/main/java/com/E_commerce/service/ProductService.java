@@ -12,7 +12,11 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+
+import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Service
 public class ProductService {
@@ -35,14 +39,26 @@ public class ProductService {
                 	    HttpStatus.NOT_FOUND));
     }
 
-    public List<Product> searchByName(String name) {
-        return productRepository
-            .findByNameContainingIgnoreCase(name);
-    }
-
-    public List<Product> getByCategory(Long categoryId) {
-        return productRepository
-            .findByCategoryId(categoryId);
+    public List<Product> searchProducts(String query) {
+        // Search by product name
+        List<Product> byName = productRepository
+            .findByNameContainingIgnoreCase(query);
+        
+        // Search by category name
+        List<Product> byCategory = productRepository
+            .findByCategory_NameContainingIgnoreCase(query);
+        
+        // Combine both results, remove duplicates
+        Set<Long> seen = new HashSet<>();
+        List<Product> combined = new ArrayList<>();
+        
+        for (Product p : byName) {
+            if (seen.add(p.getId())) combined.add(p);
+        }
+        for (Product p : byCategory) {
+            if (seen.add(p.getId())) combined.add(p);
+        }
+        return combined;
     }
 
     public ApiResponse addProduct(Product product,
@@ -83,4 +99,8 @@ public class ProductService {
         return new ApiResponse(
             "Product deleted successfully!", true);
     }
+
+	public List<Product> getByCategory(Long categoryId) {
+		return productRepository.findByCategoryId(categoryId);
+	}
 }

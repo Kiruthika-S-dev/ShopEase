@@ -14,6 +14,8 @@ public interface ProductRepository
     Page<Product> findAll(Pageable pageable);
 
     List<Product> findByNameContainingIgnoreCase(String name);
+    
+    List<Product> findByCategory_NameContainingIgnoreCase(String categoryName);
 
     List<Product> findByCategoryId(Long categoryId);
 }

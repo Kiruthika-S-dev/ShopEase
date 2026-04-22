@@ -2,11 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport"
-        content="width=device-width,
-        initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ShopEase – Home</title>
     <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
@@ -15,53 +14,54 @@
     <a href="index.html" class="logo">
         🛒 Shop<span>Ease</span>
     </a>
+    <div class="search-bar-nav">
+        <input type="text" id="searchInput" placeholder="Search for products, brands and more...">
+        <button onclick="searchProducts()">🔍</button>
+    </div>
     <div class="nav-links">
-        <span id="welcomeUser"
-            style="color:#ccc; font-size:14px">
-        </span>
+        <span id="welcomeUser"></span>
         <a href="cart.html" class="cart-icon">
             🛒 Cart
-            <span class="cart-count"
-                id="cartCount">0</span>
+            <span class="cart-count" id="cartCount">0</span>
         </a>
         <a href="orders.html">📋 Orders</a>
-        <button class="btn-logout"
-            onclick="logout()">
-            Logout
-        </button>
+        <button class="btn-logout" onclick="logout()">Logout</button>
     </div>
 </nav>
 
-<!-- Hero Section -->
-<div class="hero">
-    <h1>Welcome to <span>ShopEase</span></h1>
-    <p>Discover amazing products at great prices</p>
-    <div class="search-bar">
-        <input type="text"
-            id="searchInput"
-            placeholder="Search products...">
-        <button onclick="searchProducts()">
-            Search
-        </button>
-    </div>
+<!-- Mobile Search -->
+<div class="mobile-search">
+    <input type="text" id="searchInputMobile" placeholder="Search products...">
+    <button onclick="searchProductsMobile()">🔍</button>
 </div>
 
-<!-- Main Content -->
-<div class="section">
-    <!-- Category Filter -->
-    <div class="category-filter" id="categoryFilter">
-        <button class="category-btn active"
-            onclick="loadProducts()"
-            id="allBtn">
-            All Products
-        </button>
-    </div>
+<!-- Category Strip -->
+<div class="category-strip" id="categoryFilter">
+    <button class="cat-chip active" onclick="loadProducts()" id="allBtn">All</button>
+</div>
 
-    <!-- Products -->
-    <h2 class="section-title">Products</h2>
+<!-- Banner -->
+<div class="banner">
+    <div class="banner-content">
+        <p class="banner-tag">🔥 Best Deals Today</p>
+        <h1>Welcome, <span id="welcomeBanner">Shopper</span>!</h1>
+        <p class="banner-sub">Discover amazing products at unbeatable prices</p>
+    </div>
+    <div class="banner-art">🛍️</div>
+</div>
+
+<!-- Products Section -->
+<div class="main-section">
+    <div class="section-header">
+        <h2 id="sectionTitle">All Products</h2>
+        <span id="productCount" class="product-count"></span>
+    </div>
     <div id="productsContainer">
-        <div class="loading">
-            Loading products...
+        <div class="loading-grid">
+            <div class="skeleton-card"></div>
+            <div class="skeleton-card"></div>
+            <div class="skeleton-card"></div>
+            <div class="skeleton-card"></div>
         </div>
     </div>
 </div>
