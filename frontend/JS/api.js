@@ -1,4 +1,7 @@
-const BASE_URL = 'https://shopease-api-2wdy.onrender.com/api';
+// Wake up Render on page load
+fetch('https://shopease-api-2wdy.onrender.com/api/products')
+  .catch(() => {});
+  const BASE_URL = 'https://shopease-api-2wdy.onrender.com/api';
 
 function getToken() {
     return localStorage.getItem('token');
