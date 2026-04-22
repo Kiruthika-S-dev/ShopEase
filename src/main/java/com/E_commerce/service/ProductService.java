@@ -46,7 +46,7 @@ public class ProductService {
         
         // Search by category name
         List<Product> byCategory = productRepository
-            .findByCategory_NameContainingIgnoreCase(query);
+            .findByCategoryNameContainingIgnoreCase(query);
         
         // Combine both results, remove duplicates
         Set<Long> seen = new HashSet<>();
